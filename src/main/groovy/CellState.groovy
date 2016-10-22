@@ -1,6 +1,6 @@
 enum CellState {
     DEAD{
-        def nextState(neighbours) {
+        def nextState(Neighbours) {
             this
         }
     };
