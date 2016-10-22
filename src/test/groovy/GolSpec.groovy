@@ -1,25 +1,21 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import static Liveliness.ALIVE
 import static Liveliness.DEAD
-import static NeighbourCount.LESS_THAN_TWO
-import static NeighbourCount.THREE
-import static NeighbourCount.TWO
+import static NeighbourCount.*
 
 class GolSpec extends Specification {
-
-    def "Alive with two neighbours stays alive"() {
+    @Unroll
+    def "#currentState cell with #count neighbours becomes #nextState"(currentState, count, nextState) {
         expect:
-        ALIVE.next(TWO) == ALIVE
-    }
+        currentState.next(count) == nextState
 
-    def "Alive with less than two neighbours dies"() {
-        expect:
-        ALIVE.next(LESS_THAN_TWO) == DEAD
-    }
-
-    def "Dead with three neighbours awakens"() {
-        expect:
-        DEAD.next(THREE) == ALIVE
+        where:
+        currentState | count           || nextState
+        ALIVE        | LESS_THAN_TWO   || DEAD
+        ALIVE        | TWO             || ALIVE
+        ALIVE        | MORE_THAN_THREE || DEAD
+        DEAD         | THREE           || ALIVE
     }
 }
