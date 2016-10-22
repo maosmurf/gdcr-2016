@@ -4,18 +4,9 @@ import static State.ALIVE
 import static State.DEAD
 
 enum Neighbours {
-    LESS_THAN_TWO({ DEAD }),
-    TWO({ state -> state }),
-    THREE({ ALIVE }),
-    MORE_THAN_THREE({ DEAD });
+    LESS_THAN_TWO,
+    TWO,
+    THREE,
+    MORE_THAN_THREE;
 
-    final Function<State, State> evolutionFunction;
-
-    Neighbours(Function<State, State> evolutionFunction) {
-        this.evolutionFunction = evolutionFunction
-    }
-
-    def next(state) {
-        evolutionFunction.apply(state)
-    }
 }

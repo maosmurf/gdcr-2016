@@ -10,8 +10,8 @@ class GolSpec extends Specification {
     @Unroll
     def "#currentState cell with #neighbours neighbours becomes #nextState"(currentState, neighbours, nextState) {
         expect:
-        neighbours.next(currentState) == nextState
-        currentState.next(neighbours) == nextState
+        ALIVE.next(THREE)
+        Rule.next(currentState, neighbours) == nextState
 
         where:
         currentState | neighbours      || nextState
