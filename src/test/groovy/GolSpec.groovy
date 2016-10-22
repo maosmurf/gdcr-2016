@@ -1,4 +1,5 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import static Neighbours.*
 import static Neighbours.ONE
@@ -7,18 +8,16 @@ import static State.DEAD
 
 class GolSpec extends Specification {
 
-    def "alive cell with fewer than 2 neighbours dies"() {
+    @Unroll
+    def "#currentState cell with #neighbours neighbours becomes #nextState"(currentState, neighbours, nextState) {
         expect:
-        Rules.getNextState(ALIVE, ONE) == DEAD
-    }
+        Rules.getNextState(currentState, neighbours) == nextState
 
-    def "dead cell with three neighbours awakens"() {
-        expect:
-        Rules.getNextState(DEAD, THREE) == ALIVE
-    }
+        where:
+        currentState | neighbours || nextState
+        ALIVE | ONE || DEAD
+        ALIVE | MORE_THAN_THREE || DEAD
+        DEAD | THREE || ALIVE
 
-    def "alive cell with more than three neighbours dies"() {
-        expect:
-        Rules.getNextState(ALIVE, MANY) == DEAD
     }
 }

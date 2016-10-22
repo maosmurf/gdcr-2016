@@ -1,18 +1,20 @@
+import java.util.function.Function
+
 import static State.ALIVE
 import static State.DEAD
 
 enum Neighbours {
-    ONE{
-        State getNextState(State state) {
-            DEAD
-        }
-    },
+    ONE({ DEAD }),
+    THREE({ALIVE}),
+    MORE_THAN_THREE({DEAD});
 
-    THREE{
-        State getNextState(State state) {
-            ALIVE
-        }
+    final Function<State, State> evolutionFunction;
+
+    Neighbours(Function<State, State> evolutionFunction) {
+        this.evolutionFunction = evolutionFunction
     }
 
-    def abstract State getNextState(State state)
+    def getNextState(state) {
+        evolutionFunction.apply(state)
+    }
 }
