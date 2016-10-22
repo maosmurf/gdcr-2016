@@ -11,6 +11,6 @@ class Cell {
     }
 
     CellState getNextState() {
-        aliveNeighbours < 2 ? DEAD : ALIVE
+        aliveNeighbours < 2 || aliveNeighbours > 3 ? DEAD : ALIVE
     }
 }
