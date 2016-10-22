@@ -5,8 +5,8 @@ import static State.DEAD
 
 enum Neighbours {
     ONE({ DEAD }),
-    THREE({ALIVE}),
-    MORE_THAN_THREE({DEAD});
+    THREE({ ALIVE }),
+    MORE_THAN_THREE({ DEAD });
 
     final Function<State, State> evolutionFunction;
 

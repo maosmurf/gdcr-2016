@@ -2,7 +2,6 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 import static Neighbours.*
-import static Neighbours.ONE
 import static State.ALIVE
 import static State.DEAD
 
@@ -14,10 +13,11 @@ class GolSpec extends Specification {
         Rules.getNextState(currentState, neighbours) == nextState
 
         where:
-        currentState | neighbours || nextState
-        ALIVE | ONE || DEAD
-        ALIVE | MORE_THAN_THREE || DEAD
-        DEAD | THREE || ALIVE
+        currentState | neighbours      || nextState
+        ALIVE        | ONE             || DEAD
+        ALIVE        | MORE_THAN_THREE || DEAD
+        DEAD         | TWO           || DEAD
+        DEAD         | THREE           || ALIVE
 
     }
 }
