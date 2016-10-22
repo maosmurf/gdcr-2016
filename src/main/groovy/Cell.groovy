@@ -1,3 +1,4 @@
+import static CellState.ALIVE
 import static CellState.DEAD
 
 class Cell {
@@ -10,6 +11,6 @@ class Cell {
     }
 
     CellState getNextState() {
-        DEAD
+        aliveNeighbours < 2 ? DEAD : ALIVE
     }
 }
