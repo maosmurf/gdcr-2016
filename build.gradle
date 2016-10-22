@@ -1,7 +1,7 @@
 group 'com.maosmurf'
 version '2016-SNAPSHOT'
 
-description = "GDCD 2016"
+description = "GDCR 2016"
 
 apply plugin: 'groovy'
 apply plugin: 'java'
