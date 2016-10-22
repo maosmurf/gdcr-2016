@@ -15,7 +15,7 @@ class CellSpec extends Specification {
 
         where:
         currentState | aliveNeighbours | expectedState | description
-        ALIVE        | 9               | DEAD          | "under-populated alive dies"
+        ALIVE        | 1               | DEAD          | "under-populated alive dies"
         ALIVE        | 2               | ALIVE         | "cell with sufficient neighbours survive"
 
 
