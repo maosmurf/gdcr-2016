@@ -1,6 +1,5 @@
-/**
- * Created by az on 22/10/16.
- */
 enum NeighbourCount {
-    TWO
+    LESS_THAN_TWO,
+    TWO,
+    THREE
 }
