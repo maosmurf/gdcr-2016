@@ -19,6 +19,8 @@ class CellSpec extends Specification {
         ALIVE        | 2               | ALIVE         | "cell with sufficient neighbours survive"
         ALIVE        | 3               | ALIVE         | "cell with sufficient neighbours survive"
         ALIVE        | 4               | DEAD          | "over-populated alive dies"
+        DEAD         | 3               | ALIVE         | "dead reproduces"
+        DEAD         | 2               | DEAD          | "dead with few neighbours stays dead"
 
 
     }

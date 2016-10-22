@@ -11,6 +11,18 @@ class Cell {
     }
 
     CellState getNextState() {
-        aliveNeighbours < 2 || aliveNeighbours > 3 ? DEAD : ALIVE
+        if (state == ALIVE)
+            aliveNeighbours < 2 || aliveNeighbours > 3 ? DEAD : ALIVE
+        else
+            aliveNeighbours == 3 ? ALIVE : DEAD
+    }
+
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "aliveNeighbours=" + aliveNeighbours +
+                ", state=" + state +
+                '}';
     }
 }
