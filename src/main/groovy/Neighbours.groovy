@@ -1,0 +1,3 @@
+enum Neighbours {
+    ONE
+}
