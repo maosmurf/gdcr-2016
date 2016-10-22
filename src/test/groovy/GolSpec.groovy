@@ -14,10 +14,14 @@ class GolSpec extends Specification {
 
         where:
         currentState | neighbours      || nextState
-        ALIVE        | ONE             || DEAD
+        ALIVE        | LESS_THAN_TWO   || DEAD
+        ALIVE        | TWO             || ALIVE
+        ALIVE        | THREE           || ALIVE
         ALIVE        | MORE_THAN_THREE || DEAD
-        DEAD         | TWO           || DEAD
+        DEAD         | LESS_THAN_TWO   || DEAD
+        DEAD         | TWO             || DEAD
         DEAD         | THREE           || ALIVE
+        DEAD         | MORE_THAN_THREE || DEAD
 
     }
 }
