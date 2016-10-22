@@ -9,7 +9,7 @@ class GolSpec extends Specification {
     @Unroll
     def "#currentState cell with #count neighbours becomes #nextState"(currentState, count, nextState) {
         expect:
-        currentState.next(count) == nextState
+        count.next(currentState) == nextState
 
         where:
         currentState | count           || nextState
