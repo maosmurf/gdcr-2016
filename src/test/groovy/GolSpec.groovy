@@ -6,8 +6,12 @@ import static State.DEAD
 
 class GolSpec extends Specification {
 
-    def "cell with fewer than 2 neighbours dies"() {
+    def "alive cell with fewer than 2 neighbours dies"() {
         expect:
         Rules.getNextState(ALIVE, ONE) == DEAD
+    }
+    def "dead cell with three neighbours awakens"() {
+        expect:
+        Rules.getNextState(DEAD, THREE) == ALIVE
     }
 }
