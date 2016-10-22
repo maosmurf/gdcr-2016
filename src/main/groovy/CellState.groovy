@@ -1,20 +1,20 @@
 enum CellState {
     DEAD{
-        def NEIGHBOURS_CHANGING_STATE = [Neighbours.THREE]
-
-        def nextState(neighbours) {
-            if(NEIGHBOURS_CHANGING_STATE.contains(neighbours))
-                ALIVE
-            else
-                DEAD
+        def changingStates() {
+            [Neighbours.THREE]
         }
     },
     ALIVE {
-        def nextState(neighbours) {
+
+        def changingStates() {
             return null
         }
     };
 
+    abstract def changingStates()
 
-    abstract def nextState(neighbours)
+    def nextState(neighbours) {
+        if (changingStates().contains(neighbours)) ALIVE else this
+    }
+
 }
