@@ -26,6 +26,11 @@ enum Rule {
         state == DEAD && neighbours == THREE
     }, {
         state, neighbours -> ALIVE
+    }),
+    DEFAULT({ state, neighbours ->
+        true
+    }, {
+        state, neighbours -> state
     });
 
     protected BiPredicate<State, Neighbours> applies;
@@ -42,6 +47,13 @@ enum Rule {
 
     def canApply(State state, Neighbours neighbours) {
         applies.test(state, neighbours)
+    }
+
+    def static foobar(State state, Neighbours neighbours) {
+
+        def rules = Arrays.asList(STARVATION, LIVE_ON, OVERPOPULATION, RESURRECTION)
+
+        rules.stream().filter({ it.canApply(state, neighbours) }).findFirst().orElse(DEFAULT).apply(state, neighbours)
     }
 
 
