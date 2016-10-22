@@ -17,7 +17,9 @@ class GolSpec extends Specification {
         ALIVE        | TWO             || ALIVE
         ALIVE        | THREE           || ALIVE
         ALIVE        | MORE_THAN_THREE || DEAD
-        DEAD         | THREE           || ALIVE
+        DEAD         | LESS_THAN_TWO   || DEAD
         DEAD         | TWO             || DEAD
+        DEAD         | THREE           || ALIVE
+        DEAD         | MORE_THAN_THREE || DEAD
     }
 }

@@ -4,12 +4,12 @@ import static NeighbourCount.TWO
 enum Liveliness {
     ALIVE{
         def next(NeighbourCount neighbours) {
-            (neighbours == TWO || neighbours == THREE) ? ALIVE : DEAD
+            (neighbours == TWO || neighbours == THREE) ? this : DEAD
         }
     },
     DEAD{
         def next(NeighbourCount neighbours) {
-            ALIVE
+            neighbours != THREE ? this : ALIVE
         }
     };
 
