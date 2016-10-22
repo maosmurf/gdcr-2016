@@ -11,5 +11,10 @@ class CellSpec extends Specification {
         cell.nextState == DEAD
     }
 
-
+    def "cell with sufficient neighbours survive"() {
+        given:
+        def cell = new Cell(2, ALIVE)
+        expect:
+        cell.nextState == ALIVE
+    }
 }
