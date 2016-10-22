@@ -1,3 +1,4 @@
 enum Neighbours {
-    UNDER_POPULATED
+    UNDER_POPULATED,
+    THREE
 }

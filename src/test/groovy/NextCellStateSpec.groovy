@@ -1,21 +1,21 @@
 import spock.lang.Specification
 
-import static CellState.DEAD
-import static Neighbours.UNDER_POPULATED
+import static CellState.*
+import static Neighbours.*
 
 class NextCellStateSpec extends Specification {
 
-    def "dead without neigbours stays dead"() {
+    def "dead without neigbours stays dead"(initialCellState, numberOfNeighbours, expectedCellState) {
         when:
-        def nextState = DEAD.nextState(UNDER_POPULATED)
-        then:
-        nextState == DEAD;
-    }
+        def nextState = initialCellState.nextState(numberOfNeighbours)
 
-    def "dead with three neighbours becomes alive"() {
-        when:
-        def nextState = DEAD.nextState(THREE)
         then:
-        nextState == ALIVE;
+        nextState == expectedCellState;
+
+        where:
+        initialCellState | numberOfNeighbours | expectedCellState
+        DEAD | UNDER_POPULATED  | DEAD
+        DEAD | THREE            | ALIVE
+        DEAD | OVERPOPULATED    | DEAD
     }
 }
