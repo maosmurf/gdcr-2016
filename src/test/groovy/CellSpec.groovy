@@ -1,20 +1,23 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
-import static CellState.*
+import static CellState.ALIVE
+import static CellState.DEAD
 
 class CellSpec extends Specification {
 
-    def "under-populated alive dies"() {
+    @Unroll("#description")
+    def "game of life rules"(currentState, aliveNeighbours, expectedState, description) {
         given:
-        def cell = new Cell(1, ALIVE)
+        def cell = new Cell(aliveNeighbours, currentState)
         expect:
-        cell.nextState == DEAD
-    }
+        cell.nextState == expectedState
 
-    def "cell with sufficient neighbours survive"() {
-        given:
-        def cell = new Cell(2, ALIVE)
-        expect:
-        cell.nextState == ALIVE
+        where:
+        currentState | aliveNeighbours | expectedState | description
+        ALIVE        | 9               | DEAD          | "under-populated alive dies"
+        ALIVE        | 2               | ALIVE         | "cell with sufficient neighbours survive"
+
+
     }
 }
