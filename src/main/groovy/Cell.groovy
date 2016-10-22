@@ -1,10 +1,15 @@
-class Cell {
+import static CellState.DEAD
 
-    def "under-populated alive dies"() {
-        given:
-            def cell = new Cell(1, ALIVE)
-        expect:
-            cell.nextState == DEAD
+class Cell {
+    def aliveNeighbours
+    def state
+
+    Cell(aliveNeighbours, state) {
+        this.aliveNeighbours = aliveNeighbours
+        this.state = state
     }
 
+    CellState getNextState() {
+        DEAD
+    }
 }
