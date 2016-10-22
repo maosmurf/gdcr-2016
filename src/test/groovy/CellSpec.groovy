@@ -19,8 +19,16 @@ class CellSpec extends Specification {
         ALIVE        | 2               | ALIVE         | "cell with sufficient neighbours survive"
         ALIVE        | 3               | ALIVE         | "cell with sufficient neighbours survive"
         ALIVE        | 4               | DEAD          | "over-populated alive dies"
-        DEAD         | 3               | ALIVE         | "dead reproduces"
+        ALIVE        | 5               | DEAD          | "over-populated alive dies"
+        ALIVE        | 6               | DEAD          | "over-populated alive dies"
+        ALIVE        | 7               | DEAD          | "over-populated alive dies"
+        ALIVE        | 8               | DEAD          | "over-populated alive dies"
+        ALIVE        | 9               | DEAD          | "over-populated alive dies"
+        DEAD         | 1               | DEAD          | "dead with few neighbours stays dead"
         DEAD         | 2               | DEAD          | "dead with few neighbours stays dead"
+        DEAD         | 3               | ALIVE         | "dead reproduces"
+        DEAD         | 4               | DEAD          | "dead with many neighbours stays dead"
+        DEAD         | 5               | DEAD          | "dead with many neighbours stays dead"
 
 
     }
