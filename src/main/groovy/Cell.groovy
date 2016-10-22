@@ -3,20 +3,21 @@ import static CellState.DEAD
 
 class Cell {
     def aliveNeighbours
-    def state
+    def CellState state
 
-    Cell(aliveNeighbours, state) {
+    Cell(aliveNeighbours, CellState state) {
         this.aliveNeighbours = aliveNeighbours
         this.state = state
     }
 
     CellState getNextState() {
-        if (state == ALIVE)
-            aliveNeighbours < 2 || aliveNeighbours > 3 ? DEAD : ALIVE
-        else
-            aliveNeighbours == 3 ? ALIVE : DEAD
+        switch (state) {
+            case ALIVE:
+                return aliveNeighbours < 2 || aliveNeighbours > 3 ? DEAD : ALIVE
+            case DEAD:
+                return aliveNeighbours == 3 ? ALIVE : DEAD
+        }
     }
-
 
     @Override
     public String toString() {
