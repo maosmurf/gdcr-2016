@@ -15,7 +15,7 @@ enum Neighbours {
         this.evolutionFunction = evolutionFunction
     }
 
-    def getNextState(state) {
+    def next(state) {
         evolutionFunction.apply(state)
     }
 }
