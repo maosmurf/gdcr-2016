@@ -1,10 +1,13 @@
 enum CellState {
     DEAD{
+        public def other = ALIVE
+
         def changingStates() {
             [Neighbours.THREE]
         }
     },
-    ALIVE {
+    ALIVE{
+        public def other = DEAD
 
         def changingStates() {
             return null
@@ -14,7 +17,7 @@ enum CellState {
     abstract def changingStates()
 
     def nextState(neighbours) {
-        if (changingStates().contains(neighbours)) ALIVE else this
+        return changingStates().contains(neighbours) ? this.other : this
     }
 
 }
