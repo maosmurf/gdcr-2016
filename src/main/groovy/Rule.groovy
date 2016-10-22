@@ -50,10 +50,12 @@ enum Rule {
     }
 
     def static foobar(State state, Neighbours neighbours) {
-
         def rules = Arrays.asList(STARVATION, LIVE_ON, OVERPOPULATION, RESURRECTION)
 
-        rules.stream().filter({ it.canApply(state, neighbours) }).findFirst().orElse(DEFAULT).apply(state, neighbours)
+        def foundRule = rules.stream().filter({ it.canApply(state, neighbours) }).findFirst()
+        def ruleToApply = foundRule.orElse(DEFAULT)
+
+        ruleToApply.apply(state, neighbours)
     }
 
 
