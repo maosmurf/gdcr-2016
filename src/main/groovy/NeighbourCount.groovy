@@ -1,5 +1,6 @@
 enum NeighbourCount {
     LESS_THAN_TWO,
     TWO,
-    THREE
+    THREE,
+    MORE_THAN_THREE
 }

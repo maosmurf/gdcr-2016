@@ -15,6 +15,7 @@ class GolSpec extends Specification {
         currentState | count           || nextState
         ALIVE        | LESS_THAN_TWO   || DEAD
         ALIVE        | TWO             || ALIVE
+        ALIVE        | THREE           || ALIVE
         ALIVE        | MORE_THAN_THREE || DEAD
         DEAD         | THREE           || ALIVE
     }
