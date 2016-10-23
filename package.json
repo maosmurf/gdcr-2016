@@ -1,0 +1,10 @@
+{
+  "name": "gol",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.0.2"
+  }
+}
